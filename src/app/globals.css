@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* .custom-indicators {
+  @apply absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2;
+}
+
+.custom-indicator {
+  @apply w-10 h-1 rounded bg-white/40 transition-all duration-300;
+}
+
+.custom-indicator[data-active] {
+  @apply bg-white w-16;
+} */
