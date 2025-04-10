@@ -18,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`bg-gray-100 ${dmSans.variable} antialiased`}>
+      <body className={`${dmSans.variable} antialiased`}>
         <MantineProvider>
           <Navbar />
           {children}

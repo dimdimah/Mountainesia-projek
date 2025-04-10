@@ -14,15 +14,14 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4 bg-transparent">
-
+    <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4">
       <div className="max-w-7xl mx-auto flex justify-center">
-        <ul className="flex flex-wrap items-center justify-center gap-x-6 text-sm text-white">
+        <ul className="flex flex-wrap items-center justify-center gap-x-6  text-white">
           {navItems.map((item, index) => (
             <li key={index}>
               <Link
                 href={item.href}
-                className={`transition hover:text-orange-500 ${
+                className={`text-base transition hover:text-orange-500 ${
                   pathname === item.href ? "font-semibold underline" : ""
                 }`}
               >

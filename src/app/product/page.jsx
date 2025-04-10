@@ -2,14 +2,11 @@
 
 import { useState, useRef } from "react";
 import { useInView } from "framer-motion";
-import HeroSection from "@/components/HeroSection";
+import HeroSection from "@/components/Jumbotron";
 import FeatureSection from "@/components/FeatureSection";
 import ProductCard from "@/components/ProductCard";
-import Navbar from "@/components/Navbar";
 import PromoSection from "@/components/PromoSection";
 import InstagramFeed from "@/components/InstagramFeed";
-import Footer from "@/components/Footer";
-
 
 const allProducts = [
   {
@@ -73,23 +70,24 @@ const allProducts = [
 export default function ProductPage() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const heroData = {
+    image: "/assets/product.jpg",
+    name: "Gapai Horizon",
+    desc: "Dengan Produk Montainesia",
+    titledesc: "",
+  };
 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [visibleCount, setVisibleCount] = useState(4);
 
   const filteredProducts = allProducts
-    .filter((p) =>
-      p.title.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    .filter((p) =>
-      selectedCategory ? p.category === selectedCategory : true
-    );
+    .filter((p) => p.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    .filter((p) => (selectedCategory ? p.category === selectedCategory : true));
 
   return (
     <>
-  
-      <HeroSection />
+      <HeroSection titleData={heroData} />
       <FeatureSection />
 
       <section className="min-h-screen bg-gray-100 px-6 py-16" ref={ref}>
@@ -123,12 +121,7 @@ export default function ProductPage() {
           {/* Product Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {filteredProducts.slice(0, visibleCount).map((product, i) => (
-              <ProductCard
-                key={i}
-                {...product}
-                index={i}
-                isInView={isInView}
-              />
+              <ProductCard key={i} {...product} index={i} isInView={isInView} />
             ))}
           </div>
 
@@ -147,7 +140,6 @@ export default function ProductPage() {
       </section>
       <PromoSection />
       <InstagramFeed />
-
     </>
   );
 }
