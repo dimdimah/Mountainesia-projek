@@ -23,8 +23,8 @@ export default function Home() {
       <div className="h-96 bg-white py-12">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
           <div className="text-gray-950 text-center flex flex-col py-10 justify-center gap-3 w-2/5 mx-auto">
             <h1 className="text-xl">Tentang Kami</h1>
@@ -45,8 +45,8 @@ export default function Home() {
         <div className="max-w-6xl mx-auto rounded-lg">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="relative rounded-lg overflow-hidden bg-cover bg-center min-h-[480px]"
             style={{
               backgroundImage: "url('/assets/peta.png')",
@@ -69,13 +69,10 @@ export default function Home() {
                     {reasons.map((reason, index) => (
                       <motion.div
                         key={index}
-                        initial={{ opacity: 0, x: 100 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                          duration: 0.5,
-                          ease: "easeOut",
-                          delay: index * 0.2,
-                        }}
+                        initial={{ opacity: 0, y: 80 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                        viewport={{ once: true }}
                         className="rounded-2xl p-2 sm:p-4 flex flex-col items-center gap-2 sm:gap-4 w-full max-w-[12rem] xs:max-w-[14rem] sm:max-w-[16rem] md:max-w-[18rem]"
                       >
                         <div className="max-w-sm rounded overflow-hidden shadow-md">
